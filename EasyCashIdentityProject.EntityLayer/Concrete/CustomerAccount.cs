@@ -28,5 +28,13 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
         /// BankBranch
         /// </summary>
         public string BankBranch { get; set; }
+        /// <summary>
+        /// AppUserId
+        /// </summary>
+        public int AppUserId { get; set; }
+        /// <summary>
+        /// AppUser
+        /// </summary>
+        public AppUser AppUser { get; set; }
     }
 }
