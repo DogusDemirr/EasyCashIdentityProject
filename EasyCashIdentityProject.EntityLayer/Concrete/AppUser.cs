@@ -30,6 +30,11 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
         /// Customer's ImageUrl
         /// </summary>
         public string ImageUrl { get; set; }
+        /// <summary>
+        /// Customer's confirm approval code
+        /// </summary>
+        public int ConfirmCode { get; set; }
+
         public List<CustomerAccount> CustomerAccounts { get; set; }
 
 
