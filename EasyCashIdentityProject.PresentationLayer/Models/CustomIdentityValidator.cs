@@ -2,7 +2,7 @@
 
 namespace EasyCashIdentityProject.PresentationLayer.Models
 {
-	public class CustomdentityValidator:IdentityErrorDescriber
+	public class CustomIdentityValidator:IdentityErrorDescriber
 	{
 		public override IdentityError PasswordTooShort(int length)
 		{
