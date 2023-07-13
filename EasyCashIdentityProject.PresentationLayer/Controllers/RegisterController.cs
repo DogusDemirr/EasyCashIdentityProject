@@ -46,7 +46,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
                 if (result.Succeeded)
                 {
                     MimeMessage mimeMessage = new MimeMessage();
-                    MailboxAddress mailboxAddressFrom = new MailboxAddress("Easy Cash Admin", "dogusdemir19@gmail.com");
+                    MailboxAddress mailboxAddressFrom = new MailboxAddress("Easy Cash Admin", "dogus.demir@4arctech.com");
                     MailboxAddress mailboxAddressTo = new MailboxAddress("User", appUser.Email);
 
                     mimeMessage.From.Add(mailboxAddressFrom);
@@ -60,7 +60,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
 
                     SmtpClient client = new SmtpClient();
                     client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("dogusdemir19@gmail.com", "yqbrhtobhcugflpp");
+                    client.Authenticate("dogus.demir@4arctech.com", "kjagduzcckqmuecd");
                     client.Send(mimeMessage);
                     client.Disconnect(true);
 

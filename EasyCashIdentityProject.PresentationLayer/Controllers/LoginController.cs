@@ -9,7 +9,6 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
     {
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
-
         public LoginController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager)
         {
             _signInManager = signInManager;
@@ -24,17 +23,20 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(LoginViewModel loginViewModel)
         {
-            var result = await _signInManager.PasswordSignInAsync(loginViewModel.UserName,loginViewModel.Password,false,true);
+            var result = await _signInManager.PasswordSignInAsync(loginViewModel.UserName, loginViewModel.Password, false, true);
             if (result.Succeeded)
             {
                 var user = await _userManager.FindByNameAsync(loginViewModel.UserName);
-                if(user.EmailConfirmed == true)
+                if (user.EmailConfirmed == true)
                 {
-                    return RedirectToAction("Index", "MyProfile");
+                    //return LocalRedirect("/MyAccounts/Index");
+                    //return Redirect("/MyAccounts");
+                    return RedirectToAction("Index", "MyAccounts");
                 }
+                //else lütfen mail adresinizi onaylayın
             }
+            //kullanıcı adı veya şifre hatalı
             return View();
         }
-
     }
 }
