@@ -16,5 +16,6 @@ namespace EasyCashIdentityProject.BusinessLayer.Constants
         public const string SMTP_MAIL_ADDRESS = "smtp.gmail.com";
         public const string NULL_STRING = "";
         public const int DEFAULT_ZERO_NUMBER = 0;
+        public const string TRANSFER = "Havale";
     }
 }
