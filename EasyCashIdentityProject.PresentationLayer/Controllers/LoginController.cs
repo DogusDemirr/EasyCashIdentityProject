@@ -29,13 +29,9 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
                 var user = await _userManager.FindByNameAsync(loginViewModel.UserName);
                 if (user.EmailConfirmed == true)
                 {
-                    //return LocalRedirect("/MyAccounts/Index");
-                    //return Redirect("/MyAccounts");
                     return RedirectToAction("Index", "MyAccounts");
                 }
-                //else lütfen mail adresinizi onaylayın
             }
-            //kullanıcı adı veya şifre hatalı
             return View();
         }
     }

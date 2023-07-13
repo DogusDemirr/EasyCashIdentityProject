@@ -19,7 +19,7 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
         /// <summary>
         /// CustomerAccountCurrency
         /// </summary>
-        public int CustomerAccountCurrency { get; set; }
+        public string CustomerAccountCurrency { get; set; }
         /// <summary>
         /// CustomerAccountBalance
         /// </summary>
@@ -36,5 +36,13 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
         /// AppUser
         /// </summary>
         public AppUser AppUser { get; set; }
+        /// <summary>
+        /// CustomerSender
+        /// </summary>
+       public List<CustomerAccountProcess> CustomerSender { get; set; }
+        /// <summary>
+        /// CustomerReceiver
+        /// </summary>
+       public List<CustomerAccountProcess> CustomerReceiver { get; set; }
     }
 }

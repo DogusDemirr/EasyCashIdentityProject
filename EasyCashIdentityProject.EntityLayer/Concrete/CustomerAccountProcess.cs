@@ -29,5 +29,22 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
         /// </summary>
 
         public DateTime ProcessDate { get; set; }
+        /// <summary>
+        /// SenderID
+        /// </summary>
+        public int? SenderID { get; set; }
+        /// <summary>
+        /// ReceiverID
+        /// </summary>
+        public int? ReceiverID { get; set; }
+        /// <summary>
+        /// SenderCustomer
+        /// </summary>
+        public CustomerAccount SenderCustomer { get; set; }
+        /// <summary>
+        /// ReceiverCustomer
+        /// </summary>
+        public CustomerAccount ReceiverCustomer { get; set; }
+
     }
 }

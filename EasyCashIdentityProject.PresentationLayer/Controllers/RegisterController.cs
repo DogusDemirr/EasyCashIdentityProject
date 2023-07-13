@@ -1,4 +1,5 @@
-﻿using EasyCashIdentityProject.DtoLayer.Dtos.AppUserDtos;
+﻿using EasyCashIdentityProject.BusinessLayer.Constants;
+using EasyCashIdentityProject.DtoLayer.Dtos.AppUserDtos;
 using EasyCashIdentityProject.EntityLayer.Concrete;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity;
@@ -30,7 +31,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
             {
                 Random random = new Random();
                 int code;
-                code = random.Next(100000, 1000000);
+                code = random.Next(Const.RANDOM_FIRST, Const.RANDOM_SECOND);
                 AppUser appUser = new AppUser()
                 {
                     UserName = appUserRegisterDto.UserName,
@@ -46,7 +47,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
                 if (result.Succeeded)
                 {
                     MimeMessage mimeMessage = new MimeMessage();
-                    MailboxAddress mailboxAddressFrom = new MailboxAddress("Easy Cash Admin", "dogus.demir@4arctech.com");
+                    MailboxAddress mailboxAddressFrom = new MailboxAddress("Easy Cash Admin", Const.EMAIL_ADDRESS);
                     MailboxAddress mailboxAddressTo = new MailboxAddress("User", appUser.Email);
 
                     mimeMessage.From.Add(mailboxAddressFrom);
@@ -59,8 +60,8 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
                     mimeMessage.Subject = "Easy Cash Onay Kodu";
 
                     SmtpClient client = new SmtpClient();
-                    client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("dogus.demir@4arctech.com", "kjagduzcckqmuecd");
+                    client.Connect(Const.SMTP_MAIL_ADDRESS, Const.SMTP_PORT, false);
+                    client.Authenticate(Const.EMAIL_ADDRESS, Const.EMAIL_2FA_AUTHORIZE_CODE);
                     client.Send(mimeMessage);
                     client.Disconnect(true);
 
@@ -72,7 +73,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
                 {
                     foreach (var item in result.Errors)
                     {
-                        ModelState.AddModelError("", item.Description);
+                        ModelState.AddModelError(Const.NULL_STRING, item.Description);
                     }
                 }
                 
